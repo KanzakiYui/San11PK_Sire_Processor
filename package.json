@@ -1,0 +1,23 @@
+{
+  "name": "San11PK_Sire_Processor",
+  "version": "1.0.0",
+  "description": "A Sire file Processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KanzakiYui/San11PK_Sire_Processor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KanzakiYui/San11PK_Sire_Processor/issues"
+  },
+  "homepage": "https://github.com/KanzakiYui/San11PK_Sire_Processor#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

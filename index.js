@@ -1,11 +1,25 @@
+const lodash = require('lodash');
 const fs = require('fs');
-const rawData = fs.readFileSync('input.txt').toString();
-const newLine = rawData.includes('\r\n') ? '\r\n' : '\n';
-const parsedData = rawData.split(newLine);
-parsedData.pop();
-const data = parsedData.map(entry => {
-    info = entry.split(',');
-    return `${info[1]}\t${info[2]}\t${info[3]}`
-}).join(newLine);
-console.log(data);
-fs.writeFileSync('output.txt', data);
+const rawData1 = fs.readFileSync('cherrypick.txt').toString();
+const rawData2 = fs.readFileSync('reference.txt').toString();
+const newLine1 = rawData1.includes('\r\n') ? '\r\n' : '\n';
+const parsedData1 = rawData1.split(newLine1).map(
+    entry=>lodash.compact(entry.split(' '))
+);
+    
+const newLine2 = rawData2.includes('\r\n') ? '\r\n' : '\n';
+parsedData2 = rawData2.split(newLine2).map(
+    entry=>entry.split('\t')
+);
+const groupedData = parsedData2.reduce((accumulator,info, index)=>{
+    accumulator[index] = info[1]
+    return accumulator;
+},{});
+    
+const presentData = parsedData1.map(entry =>
+    entry.map(id => `${id} ${groupedData[id]}`)
+).join(newLine1).replace(/\,/g, ', ');
+console.log(presentData);
+
+fs.writeFileSync('output.txt', presentData);
+
