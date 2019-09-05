@@ -19,7 +19,8 @@ const groupedData = parsedData2.reduce((accumulator,info, index)=>{
 const presentData = parsedData1.map(entry =>
     entry.map(id => `${id} ${groupedData[id]}`)
 ).join(newLine1).replace(/\,/g, ', ');
-console.log(presentData);
+console.log(rawData2);
+//console.log(presentData);
 
 fs.writeFileSync('output.txt', presentData);
 
