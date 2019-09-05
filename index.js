@@ -7,4 +7,5 @@ const data = parsedData.map(entry => {
     info = entry.split(',');
     return `${info[1]}\t${info[2]}\t${info[3]}`
 }).join(newLine);
+console.log(data);
 fs.writeFileSync('output.txt', data);
